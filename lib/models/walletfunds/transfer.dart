@@ -1,0 +1,201 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:http/http.dart';
+import '../../utilities/signature.dart';
+
+class TransferFunds {
+  TransferFunds({
+    required this.status,
+    required this.data,
+  });
+
+  final Status status;
+  final Data data;
+
+  factory TransferFunds.fromRawJson(String str) =>
+      TransferFunds.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory TransferFunds.fromJson(Map<String, dynamic> json) => TransferFunds(
+        status: Status.fromJson(json["status"]),
+        data: Data.fromJson(json["data"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "status": status.toJson(),
+        "data": data.toJson(),
+      };
+}
+
+class Data {
+  Data({
+    required this.id,
+    required this.status,
+    required this.amount,
+    required this.currencyCode,
+    required this.destinationPhoneNumber,
+    required this.destinationEwalletId,
+    required this.destinationTransactionId,
+    required this.sourceEwalletId,
+    required this.sourceTransactionId,
+    required this.transferResponseAt,
+    required this.createdAt,
+    required this.metadata,
+    required this.responseMetadata,
+  });
+
+  final String id;
+  final String status;
+  final int amount;
+  final String currencyCode;
+  String? destinationPhoneNumber;
+  final String destinationEwalletId;
+  final String destinationTransactionId;
+  final String sourceEwalletId;
+  final String sourceTransactionId;
+  final int transferResponseAt;
+  final int createdAt;
+  final Metadata metadata;
+  final ResponseMetadata responseMetadata;
+
+  factory Data.fromRawJson(String str) => Data.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+        id: json["id"],
+        status: json["status"],
+        amount: json["amount"],
+        currencyCode: json["currency_code"],
+        destinationPhoneNumber: json["destination_phone_number"],
+        destinationEwalletId: json["destination_ewallet_id"],
+        destinationTransactionId: json["destination_transaction_id"],
+        sourceEwalletId: json["source_ewallet_id"],
+        sourceTransactionId: json["source_transaction_id"],
+        transferResponseAt: json["transfer_response_at"],
+        createdAt: json["created_at"],
+        metadata: Metadata.fromJson(json["metadata"]),
+        responseMetadata: ResponseMetadata.fromJson(json["response_metadata"]),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "status": status,
+        "amount": amount,
+        "currency_code": currencyCode,
+        "destination_phone_number": destinationPhoneNumber,
+        "destination_ewallet_id": destinationEwalletId,
+        "destination_transaction_id": destinationTransactionId,
+        "source_ewallet_id": sourceEwalletId,
+        "source_transaction_id": sourceTransactionId,
+        "transfer_response_at": transferResponseAt,
+        "created_at": createdAt,
+        "metadata": metadata.toJson(),
+        "response_metadata": responseMetadata.toJson(),
+      };
+}
+
+class Metadata {
+  Metadata({
+    required this.merchantDefined,
+  });
+
+  final bool merchantDefined;
+
+  factory Metadata.fromRawJson(String str) =>
+      Metadata.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Metadata.fromJson(Map<String, dynamic> json) => Metadata(
+        merchantDefined: json["merchant_defined"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "merchant_defined": merchantDefined,
+      };
+}
+
+class ResponseMetadata {
+  ResponseMetadata();
+
+  factory ResponseMetadata.fromRawJson(String str) =>
+      ResponseMetadata.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory ResponseMetadata.fromJson(Map<String, dynamic> json) =>
+      ResponseMetadata();
+
+  Map<String, dynamic> toJson() => {};
+}
+
+class Status {
+  Status({
+    required this.errorCode,
+    required this.status,
+    required this.message,
+    required this.responseCode,
+    required this.operationId,
+  });
+
+  final String errorCode;
+  final String status;
+  final String message;
+  final String responseCode;
+  final String operationId;
+
+  factory Status.fromRawJson(String str) => Status.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Status.fromJson(Map<String, dynamic> json) => Status(
+        errorCode: json["error_code"],
+        status: json["status"],
+        message: json["message"],
+        responseCode: json["response_code"],
+        operationId: json["operation_id"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "error_code": errorCode,
+        "status": status,
+        "message": message,
+        "response_code": responseCode,
+        "operation_id": operationId,
+      };
+}
+
+Future<TransferFunds> transferFund(source, dest, amount, currency) async {
+  var _myBody = jsonEncode({
+    "source_ewallet": source,
+    "amount": amount,
+    "currency": currency,
+    "destination_ewallet": dest,
+    "metadata": {"merchant_defined": true}
+  });
+
+
+  await RequestInit()
+      .getSignature("/v1/account/transfer", "post", bodyData: _myBody);
+
+  try {
+    var transfer = await post(
+      Uri.parse("https://sandboxapi.rapyd.net/v1/account/transfer"),
+      headers: header,
+      body: _myBody,
+    );
+
+    print(transfer.body);
+
+    if (transfer.statusCode == 200) {
+      return TransferFunds.fromJson(json.decode(transfer.body));
+    } else {
+      // print(transfer.body);
+      throw Exception(transfer);
+    }
+  } on SocketException {
+    throw Exception();
+  }
+}

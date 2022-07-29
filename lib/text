@@ -1,0 +1,953 @@
+Australia :[USD, AXD]
+Germany: EUR
+Denmark
+
+
+
+
+Row(
+                          children: [
+// ###################################################################
+                            InkWell(
+                              child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width / 2.3,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.shade400,
+                                      blurRadius: 10,
+                                      offset: const Offset(6, 6),
+                                    ),
+                                  ],
+                                  color:
+                                      const Color.fromARGB(255, 243, 245, 253),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
+                                margin:
+                                    const EdgeInsets.only(left: 15, right: 0),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: Colors.blue[300],
+                                        radius: 30,
+                                        child: const Icon(
+                                          Icons.attach_money_rounded,
+                                          size: 50,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      const Text("text here")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {},
+                            ),
+                            Expanded(child: Container()),
+
+// ###################################################################
+
+                            InkWell(
+                              child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width / 2.3,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.shade400,
+                                      blurRadius: 10,
+                                      offset: const Offset(6, 6),
+                                    ),
+                                  ],
+                                  color:
+                                      const Color.fromARGB(255, 248, 245, 238),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
+                                margin:
+                                    const EdgeInsets.only(left: 0, right: 15),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: Colors.yellow[300],
+                                        radius: 30,
+                                        child: const Icon(
+                                          Icons.attach_money_rounded,
+                                          size: 50,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      const Text("text here")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 25),
+                        Row(
+                          children: [
+                            InkWell(
+                              child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width / 2.3,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.shade400,
+                                      blurRadius: 10,
+                                      offset: const Offset(6, 6),
+                                    ),
+                                  ],
+                                  color:
+                                      const Color.fromARGB(255, 240, 253, 240),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
+                                margin:
+                                    const EdgeInsets.only(left: 15, right: 0),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    children: [
+                                      CircleAvatar(
+                                        backgroundColor: Colors.green[300],
+                                        radius: 30,
+                                        child: const Icon(
+                                          Icons.attach_money_rounded,
+                                          size: 50,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      const Text("text here")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {},
+                            ),
+
+// ##############################################################
+
+                            Expanded(child: Container()),
+                            InkWell(
+                              child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width / 2.3,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.shade400,
+                                      blurRadius: 10,
+                                      offset: const Offset(6, 6),
+                                    ),
+                                  ],
+                                  color:
+                                      const Color.fromARGB(255, 242, 252, 252),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                ),
+                                margin:
+                                    const EdgeInsets.only(left: 0, right: 15),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Column(
+                                    children: const [
+                                      CircleAvatar(
+                                        backgroundColor:
+                                            Color.fromARGB(255, 136, 247, 247),
+                                        radius: 30,
+                                        child: Icon(
+                                          Icons.attach_money_rounded,
+                                          size: 50,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Text("text here")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              onTap: () {},
+                            ),
+                          ],
+                        ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        title("Select Other Currencies"),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 35,
+                  width: double.infinity,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: currencies.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: const EdgeInsets.all(2),
+                          padding: const EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: _selected.contains(currencies[index])
+                                ? const Color.fromARGB(255, 199, 199, 199)
+                                : Colors.transparent,
+                            border: Border.all(color: Colors.black, width: 1),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: InkWell(
+                            child: listtext(currencies[index]),
+                            onTap: () {
+                              setState(() {
+                                if (_selected.contains(currencies[index])) {
+                                  _selected.remove(currencies[index]);
+                                } else {
+                                  _selected.add(currencies[index]);
+                                }
+                              });
+                            },
+                          ),
+                        );
+                      }),
+                ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height / 3,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(widget.img), fit: BoxFit.cover),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                const Divider(),
+
+                payText("Business Name:  ${widget.name}",
+                    color: Colors.black, size: 14),
+                const Divider(),
+
+                const SizedBox(height: 10),
+
+                payText("eWallet Id:  ${widget.wallet}",
+                    color: Colors.black, size: 13),
+                const Divider(),
+
+                const SizedBox(height: 10),
+
+                payText("Post Date:  ${widget.date}",
+                    color: Colors.black, size: 14),
+
+                const Divider(),
+
+                const SizedBox(height: 10),
+
+                payText("Description:  ${widget.description}",
+                    color: Colors.black, size: 14),
+
+                const Divider(),
+
+                const SizedBox(height: 10),
+
+                _isMe
+                    ? payText("Select Currencies",
+                        color: Colors.black, size: 14)
+                    : Container(),
+                const SizedBox(height: 10),
+                _isMe
+                    ? SizedBox(
+                        height: 35,
+                        width: double.infinity,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: currencyValue!.length,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                margin: const EdgeInsets.all(2),
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                  color: _selected ==
+                                          currencyValue![index]
+                                              .toString()
+                                              .trim()
+                                      ? const Color.fromARGB(255, 199, 199, 199)
+                                      : Colors.transparent,
+                                  border:
+                                      Border.all(color: Colors.black, width: 1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: InkWell(
+                                  child: listtext(currencyValue![index]),
+
+// ########################################### TRICKY PART ####################################
+
+                                  onTap: () {
+                                    setState(() {
+                                      if (currencyValue![index]
+                                              .toString()
+                                              .trim() ==
+                                          "USD") {
+                                        _selected = "USD";
+                                        _rate = 1;
+                                        _payamount =
+                                            double.parse(widget.amount);
+                                      } else {
+                                        _selected = currencyValue![index]
+                                            .toString()
+                                            .trim();
+                                        var _cu =
+                                            currencies.indexOf(_selected!);
+
+                                        _rate = double.parse(conversion[_cu]);
+
+                                        _payamount =
+                                            (double.parse(widget.amount) *
+                                                _rate!);
+                                      }
+
+                                      // print(_payamount.floor().toString());
+                                    });
+                                  },
+                                ),
+                              );
+                            }),
+                      )
+                    : Container(),
+
+                const SizedBox(height: 10),
+
+                _isMe
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: 190,
+                            child: bizlist.contains(widget.id)
+                                ? inputFeild(
+                                    "Balance ${bizbal[_pos].toString()} USD",
+                                    "",
+                                    _money,
+                                    enable: false)
+                                : inputFeild(
+                                    "Amount",
+                                    "Max ${_payamount.floor()} $_selected",
+                                    _money),
+                          ),
+// ###############
+
+                          smallText("Persons:", color: Colors.black),
+
+                          !bizlist.contains(widget.id)
+                              ? IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      if (_count != 1) {
+                                        _payamount /= _count;
+                                        _count -= 1;
+                                      }
+                                    });
+                                  },
+                                  icon: const Icon((FontAwesomeIcons.minus),
+                                      size: 20))
+                              : Container(),
+
+                          !bizlist.contains(widget.id)
+                              ? listtext(_count.toString())
+                              : listtext(persons[_pos]),
+
+                          !bizlist.contains(widget.id)
+                              ? IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _count += 1;
+                                      _payamount *= _count;
+                                    });
+                                  },
+                                  icon: const Icon((FontAwesomeIcons.plus),
+                                      size: 20))
+                              : Container(),
+
+// #################
+                        ],
+                      )
+                    : Container(),
+                const SizedBox(height: 10),
+
+                bizlist.contains(widget.id)
+                    ? payText(
+                        "${(double.parse(bizbal[_pos]) * _rate!).floor()} $_selected",
+                        color: const Color.fromARGB(255, 1, 92, 156),
+                        size: 14)
+                    : payText("${_payamount.floor()} $_selected",
+                        color: const Color.fromARGB(255, 1, 92, 156), size: 14),
+
+                const SizedBox(height: 20),
+
+                _isMe
+                    ? SizedBox(
+                        child: !_isLoading
+                            ? SizedBox(
+                                height: 60,
+                                child: MaterialButton(
+                                  color: const Color.fromARGB(255, 1, 92, 156),
+                                  splashColor: Colors.white,
+                                  minWidth: MediaQuery.of(context).size.width,
+                                  onPressed: () async => await _onSubmit(),
+                                  child: whitesmallText("Pay Now"),
+                                ),
+                              )
+                            : const SpinKitWave(color: Colors.grey, size: 35),
+                      )
+                    : Container(),
+
+// #################################################################
+              ],
+            ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             // Padding(
+                    //   padding: const EdgeInsets.only(left: 10, right: 10),
+                    //   child: Row(
+                    //     children: [
+                    //       smallText("Registered Business", color: Colors.black),
+                    //       Expanded(child: Container()),
+                    //       // smallText("Add "),
+                    //       IconButton(
+                    //         onPressed: () async => await Navigator.push(
+                    //             context,
+                    //             MaterialPageRoute(
+                    //                 builder: (context) =>
+                    //                     RegsiterBusiness(widget.wallet))),
+                    //         icon: const Icon(FontAwesomeIcons.circlePlus,
+                    //             color: Colors.black),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+
+                    // StreamBuilder<BusinessClass>(
+                    //   stream: streamBusiness(),
+                    //   builder: (context, snapshot) {
+                    //     return Container(
+                    //       child:
+                    //     );
+                    //   },
+                    // ),
+                    // ##########################################################################################################
+                    // const SizedBox(height: 5),
+
+                    // SizedBox(
+                    //   height: 100,
+                    //   width: double.infinity,
+                    //   // list business
+                    //   child: StreamBuilder<BusinessClass>(
+                    //     stream: streamBusiness(),
+                    //     builder: (context, snapshot) {
+                    //       if (snapshot.hasData) {
+                    //         return ListView.builder(
+                    //           scrollDirection: Axis.horizontal,
+                    //           shrinkWrap: true,
+                    //           physics: const ScrollPhysics(),
+                    //           itemCount: snapshot.data!.data.length,
+                    //           itemBuilder: (context, i) {
+                    //             var formatCurrency =
+                    //                 NumberFormat.simpleCurrency();
+                    //             return InkWell(
+                    //               child: Padding(
+                    //                   padding: const EdgeInsets.only(
+                    //                       left: 3, right: 3),
+                    //                   child: Column(
+                    //                     crossAxisAlignment:
+                    //                         CrossAxisAlignment.start,
+                    //                     children: [
+                    //                       Container(
+                    //                         decoration: BoxDecoration(
+                    //                           color: const Color.fromARGB(
+                    //                               255, 236, 236, 236),
+                    //                           boxShadow: const [
+                    //                             BoxShadow(
+                    //                               color: Color.fromARGB(
+                    //                                   255, 178, 179, 179),
+                    //                               blurRadius: 10,
+                    //                               offset: Offset(6, 6),
+                    //                             ),
+                    //                           ],
+                    //                           image: DecorationImage(
+                    //                               image: NetworkImage(snapshot
+                    //                                   .data!.data[i].img),
+                    //                               fit: BoxFit.cover),
+                    //                         ),
+                    //                         width: 155,
+                    //                         height: 75,
+                    //                       ),
+                    //                       smallText(formatCurrency.format(
+                    //                           int.parse(snapshot
+                    //                               .data!.data[i].amount))),
+                    //                     ],
+                    //                   )),
+                    //               onTap: () async {
+                    //                 Navigator.push(
+                    //                   context,
+                    //                   (MaterialPageRoute(
+                    //                     builder: (context) =>
+                    //                         BusinessTransactions(
+                    //                             snapshot.data!.data[i].img,
+                    //                             snapshot.data!.data[i].amount,
+                    //                             snapshot.data!.data[i].currency,
+                    //                             snapshot.data!.data[i].name,
+                    //                             snapshot.data!.data[i].date,
+                    //                             snapshot.data!.data[i].wallet,
+                    //                             snapshot.data!.data[i].id,
+                    //                             widget.wallet,
+                    //                             snapshot
+                    //                                 .data!.data[i].description,
+                    //                             snapshot.data!.data[i].status),
+                    //                   )),
+                    //                 );
+                    //               },
+                    //             );
+                    //           },
+                    //         );
+                    //       } else if (snapshot.hasError) {
+                    //         return Container();
+                    //       } else {
+                    //         return ListView.builder(
+                    //           itemCount: 5,
+                    //           scrollDirection: Axis.horizontal,
+                    //           shrinkWrap: true,
+                    //           physics: const ScrollPhysics(),
+                    //           itemBuilder: (context, index) {
+                    //             return Shimmer.fromColors(
+                    //               baseColor:
+                    //                   const Color.fromARGB(255, 231, 231, 231),
+                    //               highlightColor:
+                    //                   const Color.fromARGB(255, 247, 246, 244),
+                    //               child: Container(
+                    //                 margin: const EdgeInsets.all(5),
+                    //                 width: 155,
+                    //                 height: 50,
+                    //                 decoration: const BoxDecoration(
+                    //                   color: Colors.white,
+                    //                   boxShadow: [
+                    //                     BoxShadow(
+                    //                       color: Color.fromARGB(
+                    //                           255, 178, 179, 179),
+                    //                       blurRadius: 10,
+                    //                       offset: Offset(6, 6),
+                    //                     ),
+                    //                   ],
+                    //                 ),
+                    //                 child: text("xxxxxxx"),
+                    //               ),
+                    //             );
+                    //           },
+                    //         );
+                    //       }
+                    //     },
+                    //   ),
+                    // ),
+
+                    // business!.data[0].img.isEmpty?Container():Text(business!.data[0].img),
+
+                    // const SizedBox(height: 5),
+
+
+
+
+
+
+
+
+
+    // getuserpayout().then((get) {
+    //   get.data.forEach((e) async {
+    //     _postuserid.add(e.postId);
+    //   });
+    //   // print(widget.path);
+    //   // print(_postuserid);
+    //   // print(_postuserid.contains(widget.path.toString()));
+
+    //   if (_postuserid.contains(widget.path.toString())) {
+    //     setState(() {
+    //       _pos = _postuserid.indexOf(widget.id);
+    //       print(_pos);
+    //     });
+
+    //     if (double.parse(get.data[_pos].balance) == 0) {}
+    //   }
+    // });
+  }
+
+// // ########################## Pay to Admins Account ####################################
+
+//     await transferFund(widget.mywallet, adminwallet,
+//             double.parse(_total!).floor().toString(), _selected)
+//         .then((admin) async {
+//       print(admin.status.errorCode);
+
+// // ########################## respond & Admin pay to client wallet ####################################
+
+//       await txRespond(admin.data.id, "accept", "accepted").then(
+//         (res) async {
+//           if (widget.wallet != adminwallet) {
+// // ####
+//             await transferFund(
+//                     adminwallet,
+//                     widget.wallet,
+//                     (double.parse(_total!).floor() * 0.95).toString(),
+//                     _selected)
+//                 .then((Clienttx) async {
+//               if (widget._status == "true") {
+//                 await txRespond(Clienttx.data.id, "accept", "accepted").then(
+//                   (value) {
+//                     print("Done");
+//                   },
+//                 );
+//               }
+//             });
+//           }
+//         },
+//       );
+
+// // ########################### if user paid part #####################################
+
+//       if (bizlist.contains(widget.id)) {
+//         await deleteTransactons(
+//                 widget.mywallet.toString(), widget.id.toString())
+//             .then((value) async {
+//           bizlist = [];
+//           bizbal = [];
+//           persons = [];
+//           await gettransaction();
+
+//           _userpos();
+//           print(value);
+//         });
+//       } else {
+// // ########################### if user hasn't paid before #####################################
+
+//         await uploadTransactons(
+//                 _balance.floor().toString(),
+//                 widget.wallet.toString(),
+//                 widget.mywallet.toString(),
+//                 _selected,
+//                 _date,
+//                 widget.id,
+//                 _count.toString())
+//             .then((value) async {
+//           bizlist = [];
+//           bizbal = [];
+//           persons = [];
+//           await gettransaction().then((v) async {
+//             _userpos();
+//             print("Uploaded!!!!!!!!!!!!!!!!!");
+
+// // ###############################if user pays off once#########################
+
+//             if (double.parse(v.data[_pos].balance) == 0) {
+//               await deleteTransactons(
+//                       widget.mywallet.toString(), widget.id.toString())
+//                   .then((value) async {
+//                 bizlist = [];
+//                 bizbal = [];
+//                 persons = [];
+//                 await gettransaction();
+//                 _userpos();
+//                 print("Deleted!!!!!!!!!!!!!!!!!!!");
+//               });
+//             }
+//             // value.data[]
+//           });
+
+//           print("successful");
+//         });
+//       }
+//     });
+
+//     _state(false);
+//     _money.clear();
+//   }
+
+// // ################################################################################
+
+//   @override
+//   void initState() {
+//     super.initState();
+
+//     setState(() {
+//       _payamount = double.parse(widget.amount);
+
+//       if (widget.currency.toString().contains(',')) {
+//         currencyValue = widget.currency
+//             .toString()
+//             .replaceAll('[', '')
+//             .replaceAll(']', '')
+//             .trim()
+//             .split(',');
+//       } else {
+//         currencyValue = [
+//           widget.currency
+//               .toString()
+//               .replaceAll('[', '')
+//               .replaceAll(']', '')
+//               .trim()
+//         ];
+//       }
+//     });
+
+//     if (widget.mywallet != widget.wallet) {
+//       setState(() {
+//         _isMe = true;
+//       });
+//     }
+
+//     _userpos();
+//   }
+
+
+
+
+
+ // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     SizedBox(
+                //         width: MediaQuery.of(context).size.width / 3.3,
+                //         child: Autocomplete(
+                //           optionsBuilder: (TextEditingValue value) {
+                //             if (value.text.isEmpty) {
+                //               return const Iterable<String>.empty();
+                //             } else {
+                //               return currencies
+                //                   .where((element) => element
+                //                       .toLowerCase()
+                //                       .contains(value.text))
+                //                   .toList();
+                //             }
+                //           },
+                //           onSelected: (String value) async {
+                //             setState(
+                //               () {
+                //                 _selectedcurrency = value;
+                //                 // print(_currencyCode);
+                //               },
+                //             );
+
+                //             await getPayoutlistMethod(_selectedcurrency)
+                //                 .then((v) {
+                //               _selectedmethod = null;
+                //               setState(() {
+                //                 _mycountry = [];
+                //                 _mymethods = [];
+                //                 _mysendercurrency = [];
+                //                 _mysendercountry = [];
+                //                 _myname = [];
+                //                 _len = v["data"].length;
+                //               });
+
+                //               for (var i = 0; i < v["data"].length; i++) {
+                //                 _mymethods
+                //                     .add(v["data"][i]["payout_method_type"]);
+                //                 _mycountry
+                //                     .add(v["data"][i]["beneficiary_country"]);
+                //                 _mysendercountry
+                //                     .add(v["data"][i]["sender_country"]);
+                //                 _mysendercurrency
+                //                     .add(v["data"][i]["sender_currencies"]);
+                //                 _myname.add(v["data"][i]["name"]);
+                //               }
+
+                //               print(_mycountry);
+                //             });
+                //           },
+                //         )),
+                //     SizedBox(
+                //       width: MediaQuery.of(context).size.width / 1.7,
+                //       child: DropdownButtonFormField<String>(
+                //         isExpanded: true,
+                //         menuMaxHeight: 400,
+                //         value: _selectedmethod,
+                //         decoration: const InputDecoration(
+                //           isDense: true,
+                //           hintText: "Payment Method",
+                //         ),
+                //         items: _mymethods.map((value) {
+                //           return DropdownMenuItem<String>(
+                //             value: value,
+                //             child: Text(value),
+                //           );
+                //         }).toList(),
+                //         onChanged: (setValue) {
+                //           setState(() {
+                //             _selectedmethod = setValue.toString();
+
+                //             var i = _mymethods.indexOf(_selectedmethod!);
+
+                //             _country = _mycountry[i];
+                //             _currency = _mysendercurrency[i];
+
+                //             print(_currency);
+                //           });
+                //         },
+                //       ),
+                //     ),
+                //   ],
+                // ),
+
+
+
+
+
+        await createPayout(
+//             _method,
+//             widget._wallet,
+//             _total,
+//             _payoutcurrency,
+//             _selectedcurrency,
+//             _mycountry,
+//             "individual",
+//             "individual",
+//             _benecountry,
+//             "${_listdata[2].toString().trim()} ${_listdata[1].toString().trim()}",
+//             _listdata[0].toString().trim(),
+//             _listdata[2].toString().trim(),
+//             _listdata[1].toString().trim(),
+//             "${_listdata[2].toString().trim()}.${_listdata[1].toString().trim()}",
+//             _wallet,
+//             _listdata[4].toString().trim(),
+//             "")
+//         .onError((error, stackTrace) => overlayError(error))
+//         .then(
+//       (v) async {
+// // ##################### check if user already paid ###################
+
+//         if (v["status"]["error_code"] != "") {
+//           overlayError(v["status"]["error_code"].toString());
+//           return;
+//         }
+
+//         await respondPayout(v["data"]["id"]).then((vl) {
+//           print(vl);
+//         });
+// // ################ post on DB ########################
+//         // print(widget.path.toString());
+//         // print(bizlist);
+// // ##################### check if user already paid ###################
+//         if (bizlist.contains(widget.path.toString())) {
+//           await deleteTransactons(
+//                   widget._wallet.toString(), widget.path.toString())
+//               .then((value) async {
+//             print("1st deleting....................");
+
+//             bizlist = [];
+//             bizbal = [];
+//             persons = [];
+//             balcurrency = [];
+//             await getuserpayout();
+
+//             _userpos();
+//             print(value);
+//           });
+//         } else {
+// // ########################### if user hasn't paid before #####################################
+//           await postuserpayout(
+//                   widget._wallet,
+//                   _wallet,
+//                   _total.toString(),
+//                   _balance.toString(),
+//                   "",
+//                   _selectedcurrency,
+//                   _id.toString(),
+//                   _count.toString())
+//               .onError((error, stackTrace) => overlayError(error))
+//               .then((result) async {
+//             print("Uploading!!!!!!!!!!!!!!!!!");
+//             bizlist = [];
+//             bizbal = [];
+//             persons = [];
+//             balcurrency = [];
+
+//             await getuserpayout().then((v) async {
+//               _userpos();
+//               print("Uploaded!!!!!!!!!!!!!!!!!");
+
+// // ###############################if user pays off once#########################
+//               // print(v.data[_pos!].balance);
+//               // print(v.data[_pos!].balance.runtimeType);
+
+//               if (v.data[_pos!].balance == "0.0") {
+//                 await deleteTransactons(widget._wallet, widget.path.toString())
+//                     .then((value) async {
+//                   bizlist = [];
+//                   bizbal = [];
+//                   persons = [];
+//                   balcurrency = [];
+// // #################### Reload business list ########################
+//                   await getuserpayout();
+//                   _userpos();
+//                   print("Deleted!!!!!!!!!!!!!!!!!!!");
+//                 });
+//               }
+//             });
+//           });
+//         }
+//       },
+//     );
